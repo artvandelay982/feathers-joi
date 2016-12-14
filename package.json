@@ -14,6 +14,7 @@
     "joi": "^10.0.5"
   },
   "devDependencies": {
+    "body-parser": "^1.15.2",
     "feathers": "^2.0.3",
     "feathers-configuration": "^0.4.1",
     "feathers-errors": "^2.5.0",
