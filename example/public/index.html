@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/core-js/2.1.4/core.min.js"></script>
+    <script src="//unpkg.com/feathers-client@^1.0.0/dist/feathers.js"></script>
+    <script src="socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+      // Establish a Socket.io connection to the local server
+      var socket = io();
+      // Create a client side Feathers application that uses the socket
+      // for connecting to services
+      var app = feathers();
+      app.configure(feathers.socketio(socket));
+      // Retrieve a connection to the /messages service on the server
+      // This service will use websockets for all communication
+      var messages = app.service('messages');
+
+      // Listen for when a new message has been created
+      var createMsg = 'Your message was accepted!';
+      messages.on('created', function(message) {
+        var evtMsg = new Date().toISOString() + ': ' +
+          createMsg + JSON.stringify(message);
+        
+        // n33d 1337 skillz 2 r3ad
+        console.log(evtMsg);
+
+        // such HTML, much vanillas
+        document.body.append(evtMsg);
+        document.body.append(document.createElement('br'));
+      });
+
+      // Create a new message on the service
+      // This conforms to the example schema, which requires a string
+      messages.create({ text: 'It really works!' });
+      // A message will be logged in the console on creation; comment out the line above
+      // and uncomment the line below to confirm the system rejects invalid data (a number)
+      // messages.create({ text: 1234567890 });
+    </script>
+  </head>
+  <body>
+    INCOMING MESSAGES: <br/>
+  </body>
+</html>
