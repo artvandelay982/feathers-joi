@@ -8,7 +8,7 @@
     "example": "node example/app.js",
     "test": "mocha"
   },
-  "author": "",
+  "author": "Dylan Williams",
   "license": "MIT",
   "dependencies": {
     "joi": "^10.0.5"
