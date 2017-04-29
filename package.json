@@ -4,7 +4,6 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "build": "rimraf lib/ && babel -d lib/ src/",
     "example": "node example/app.js",
     "test": "mocha"
   },
