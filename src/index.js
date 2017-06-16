@@ -7,7 +7,7 @@ const defaultOptions = {
 }
 // feathersjs joi schema validator hooks
 // db agnostic - wow!
-const feathersJoi = module.exports = ({ schema }, options = {}) => {
+const feathersJoi = module.exports = ({ schema, options = {} }) => {
     return validate(schema, options)
 }
 

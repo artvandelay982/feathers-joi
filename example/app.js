@@ -44,18 +44,20 @@ const start = new Promise(function(resolve) {
       })
     }) ]
   })
+
   const ex1 = {
     schema: joi.object().keys({
       text: joi.string().required()
-    })
+    }),
+    options: {
+      stripUnknown: true,
+      hookType: 'after'
+    }
   }
 
   messages.after({
     create: [
-      feathersJoi(ex1, {
-        stripUnknown: true,
-        hookType: 'after'
-      })
+      feathersJoi(ex1)
     ]
   })
   // A basic error handler, just like Express
