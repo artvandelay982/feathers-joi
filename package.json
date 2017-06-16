@@ -3,7 +3,7 @@
   "version": "1.1.1",
   "homepage": "https://github.com/artvandelay982/feathers-joi",
   "repository": "artvandelay982/feathers-joi",
-  "description": "",
+  "description": "FeathersJS Service Hook Data Validation with Joi",
   "main": "src/index.js",
   "scripts": {
     "example": "node example/app.js",
