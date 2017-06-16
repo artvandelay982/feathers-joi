@@ -21,7 +21,7 @@ const app = feathers()
   // Turn on JSON parser for REST services
   .use(bodyParser.json())
   // Turn on URL-encoded parser for REST services
-  .use(bodyParser.urlencoded({extended: true}))
+  .use(bodyParser.urlencoded({ extended: true }))
   // Serve static files
   .use('/', serveStatic( path.join(__dirname, 'public') ));
 
@@ -44,7 +44,20 @@ const start = new Promise(function(resolve) {
       })
     }) ]
   })
+  const ex1 = {
+    schema: joi.object().keys({
+      text: joi.string().required()
+    })
+  }
 
+  messages.after({
+    create: [
+      feathersJoi(ex1, {
+        stripUnknown: true,
+        hookType: 'after'
+      })
+    ]
+  })
   // A basic error handler, just like Express
   app.use(handler());
 
