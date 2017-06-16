@@ -2,6 +2,7 @@
   "name": "feathers-joi",
   "version": "1.1.1",
   "homepage": "https://github.com/artvandelay982/feathers-joi",
+  "repository": "artvandelay982/feathers-joi",
   "description": "",
   "main": "src/index.js",
   "scripts": {
