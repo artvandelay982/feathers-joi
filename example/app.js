@@ -50,8 +50,7 @@ const start = new Promise(function(resolve) {
       text: joi.string().required()
     }),
     options: {
-      stripUnknown: true,
-      hookType: 'after'
+      stripUnknown: true
     }
   }
 
