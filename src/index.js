@@ -2,7 +2,6 @@ const joi = require('joi');
 
 // default options
 const defaultOptions = {
-    hookType: 'before',
     stripUnknown: false
 }
 // feathersjs joi schema validator hooks
@@ -11,14 +10,12 @@ const feathersJoi = module.exports = ({ schema, options = {} }) => {
     return validate(schema, options)
 }
 
-
 function validate (schema, options) {
     return (hook) => { // returns a feathers hook with schema context
         return new Promise((resolve, reject) => {
-            let { hookType, stripUnknown } = options
-            
-            // if hookType is undefined then set it as defaultOptions.hookType
-            hookType = (hookType !== undefined ? hookType : defaultOptions.hookType)
+            let { stripUnknown } = options
+
+            const hookType = hook.type // get 'before' or 'after'
 
             // if stripUnknown is undefined then set as defaultOptions.stripUnknown 
             stripUnknown = (stripUnknown !== undefined ? stripUnknown : defaultOptions.stripUnknown)

@@ -11,10 +11,9 @@ const joi = require('joi')
 const validate = require('feathers-joi')
 const schema = joi.string().required()
 
-// options.hookType needs to be defined for after hooks
+// optional
 const options = {
-  stripUnknown: true,
-  hookType: 'after'
+  stripUnknown: true
 }
 
 // feathers app, configured with feathers-hooks
